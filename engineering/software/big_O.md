@@ -1,0 +1,2 @@
+- https://alexandra-ortiz.medium.com/5-steps-to-crushing-big-o-101594718e7c
+- https://www.interviewcake.com/article/java/big-o-notation-time-and-space-complexity
