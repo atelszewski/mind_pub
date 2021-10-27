@@ -102,6 +102,29 @@ git filter-branch -f --env-filter "
 3. Make changes and do `git commit`, but without `--amend`.
 4. `git rebase --continue`.
 
+# Split a commit
+
+> **IMPORTANT**
+>
+> Save the original commit's message before `reset`,
+> since it will be lost otherwise.
+
+Start an interactive rebase:
+
+    $ git rebase -i COMMIT~1
+
+Mark the commit to be split with `edit`.
+Then, reset the state to the previous commit:
+
+    $ git reset HEAD~1
+
+Use `git add` and `git commit` to incrementally add changes.
+Then resume rebasing:
+
+    $ git rebase --continue
+
+Source: [Embedded Artistry: Workflow for Splitting git Commits](https://tinyurl.com/59jatw8r)
+
 # Remote
 
 ## Add/remove a secondary (or alternative) remote
