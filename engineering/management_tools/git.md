@@ -59,7 +59,11 @@ _A dog:_
 
 # Print commit message of a given commit hash
 
-    $ git log --format=%B -1 f66672c
+    $ git log -1 --format=%B <COMMIT>
+
+# Print the names of files changed in a given commit
+
+    $ git log -1 --pretty= --name-only <COMMIT>
 
 # Stashing
 
