@@ -129,6 +129,12 @@ Then resume rebasing:
 
 Source: [Embedded Artistry: Workflow for Splitting git Commits](https://tinyurl.com/59jatw8r)
 
+# Working with branches
+
+## Create a branch from a commit
+
+    $ git branch <BRANCH_NAME> <COMMIT>
+
 # Remote
 
 ## Add/remove a secondary (or alternative) remote
