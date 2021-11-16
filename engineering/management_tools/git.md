@@ -135,6 +135,10 @@ Source: [Embedded Artistry: Workflow for Splitting git Commits](https://tinyurl.
 
     $ git branch <BRANCH_NAME> <COMMIT>
 
+## Make a branch point to a different commit
+
+    $ git branch -f <BRANCH_NAME> <COMMIT>
+
 # Remote
 
 ## Add/remove a secondary (or alternative) remote
