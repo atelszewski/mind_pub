@@ -26,8 +26,9 @@ workspaces.
 
 > **NOTE**
 >
-> Before deleting a workspace, Revert (or submit) any pending or
+> Before deleting a workspace, revert (or submit) any pending or
 > shelved changelists associated with the workspace.
+> Also, all opened files need to be closed first.
 
      $ p4 workspace -d <WS_NAME>
 
