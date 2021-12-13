@@ -28,7 +28,9 @@ Comparing against previous commit (`HEAD~1`):
 
 `HEAD~` can be replaced with any other reference to a commit one wants to compare against.
 
-# Find commits yet to be applied to upstream
+## Searching for commits
+
+### Yet to be applied to upstream
 
     $ git cherry -v local local_old | grep ^\+
 
@@ -36,10 +38,6 @@ Comparing against previous commit (`HEAD~1`):
 > 
 > The equivalence test is based on the _diff_,
 > after removing whitespace and line numbers.
-
-# Find branches the commit is on
-
-    $ git branch -a --contains <commit>
 
 # Edit commit
 
@@ -56,6 +54,17 @@ Comparing against previous commit (`HEAD~1`):
 _A dog:_
 
     $ git log --all --decorate --oneline --graph
+
+## Files and objects inspection
+
+### Show full contents of a file as if the staged changes were applied
+
+    $ git show :path/to/the/file
+
+> **NOTE**
+>
+> Note the colon ":" in front of the file path.
+> Note that placing "--" before the path does not work as a separator here.
 
 # Print commit message of a given commit hash
 
