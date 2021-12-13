@@ -1,7 +1,7 @@
 Git (Distributed Version Control System - DVCS)
 ===============================================
 
-# Types of diff
+## Types of diff
 
 From [StackOverflow](https://stackoverflow.com/a/8452932).
 
@@ -39,17 +39,17 @@ Comparing against previous commit (`HEAD~1`):
 > The equivalence test is based on the _diff_,
 > after removing whitespace and line numbers.
 
-# Edit commit
+## Edit commit
 
     $ git rebase -i HEAD~3
 
-# Cherry-pick from another repo, _without adding it_ as remote first
+## Cherry-pick from another repo, _without adding it_ as remote first
 
     $ cd path/to/current/repo
     $ git --git-dir=/path/to/another/repo/.git format-patch -k -1 --stdout <commit> \
           | git am -3 -k
 
-# Graphical log (adog)
+## Graphical log (adog)
 
 _A dog:_
 
@@ -66,35 +66,35 @@ _A dog:_
 > Note the colon ":" in front of the file path.
 > Note that placing "--" before the path does not work as a separator here.
 
-# Print commit message of a given commit hash
+## Print commit message of a given commit hash
 
     $ git log -1 --format=%B <COMMIT>
 
-# Print the names of files changed in a given commit
+## Print the names of files changed in a given commit
 
     $ git log -1 --pretty= --name-only <COMMIT>
 
-# Stashing
+## Stashing
 
-## Stash everything except index (i.e. staged/cached changes)
+### Stash everything except index (i.e. staged/cached changes)
 
     $ git stash push -k -u
 
-## Checkout tracked path from stash
+### Checkout tracked path from stash
 
     $ git checkout stash@{0} -- README
 
-## Checkout untracked path from stash
+### Checkout untracked path from stash
 
 See [here](https://stackoverflow.com/a/23609023) for details.
 
     $ git checkout stash@{0}^3 -- untracked/file.txt
 
-## Compare index with a stash
+### Compare index with a stash
 
     $ git diff --cached stash@{0} -- README
 
-# Reset author for all commits
+## Reset author for all commits
 
 ```
 git filter-branch -f --env-filter "
@@ -105,7 +105,7 @@ git filter-branch -f --env-filter "
   " HEAD
 ```
 
-# Inject commit in-between other commits
+## Inject commit in-between other commits
 
 1. Find the commit the new commit should be injected _after_:
 
@@ -115,7 +115,7 @@ git filter-branch -f --env-filter "
 3. Make changes and do `git commit`, but without `--amend`.
 4. `git rebase --continue`.
 
-# Split a commit
+## Split a commit
 
 > **IMPORTANT**
 >
@@ -138,19 +138,19 @@ Then resume rebasing:
 
 Source: [Embedded Artistry: Workflow for Splitting git Commits](https://tinyurl.com/59jatw8r)
 
-# Working with branches
+## Working with branches
 
-## Create a branch from a commit
+### Create a branch from a commit
 
     $ git branch <BRANCH_NAME> <COMMIT>
 
-## Make a branch point to a different commit
+### Make a branch point to a different commit
 
     $ git branch -f <BRANCH_NAME> <COMMIT>
 
-# Remote
+## Remotes
 
-## Add/remove a secondary (or alternative) remote
+### Add/remove a secondary (or alternative) remote
 
 ```
 $ git remote add alt-remote-name alt-remote-machine:/path/to/repo.git
@@ -160,15 +160,15 @@ $ git pull alt-remote-name master
 $ git remote rm alt-remote-name
 ```
 
-## List remote branches
+### List remote branches
 
 ```
 $ git branch -r
 ```
 
-# Submodules
+## Submodules
 
-## Loop over submodules and conditionally execute a command
+### Loop over submodules and conditionally execute a command
 
 And test if there are any uncommitted changes in the index.
 If there are such changes, execute specified command.
