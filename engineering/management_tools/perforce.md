@@ -32,6 +32,15 @@ workspaces.
 
      $ p4 workspace -d <WS_NAME>
 
+## Close open files in a workspace
+
+> **WARNING**
+>
+> Closing, (aka. reverting) files will destroy any changes made to the files.
+
+    $ cd path/to/workspace
+    $ p4 revert ...
+
 ## List files in a depot
 
 ### Non-recursively
