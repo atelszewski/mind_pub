@@ -43,11 +43,26 @@ Comparing against previous commit (`HEAD~1`):
 
     $ git rebase -i HEAD~3
 
-## Cherry-pick from another repo, _without adding it_ as remote first
+## Interacting with another repositories
 
-    $ cd path/to/current/repo
-    $ git --git-dir=/path/to/another/repo/.git format-patch -k -1 --stdout <commit> \
-          | git am -3 -k
+### Cherry-pick from another repo, _without adding it_ as a remote first
+
+```
+$ cd path/to/current/repo
+$ git --git-dir=/path/to/another/repo/.git format-patch -k -1 --stdout <commit> \
+      [--relative=<some/dir>] | git am -3 -k [--directory=<root>]
+```
+
+The following two options are useful when applying a patch in a tree where
+the destination directory name differs from the source one:
+
+- `--relative=<some/dir>` Instruct `format-patch` to exclude changes
+  outside the directory and show pathnames relative to it.
+  Note: `=` between the option and its value **is required**.
+
+- `--directory=<root>` Instruct `am` to prepend `<root>` to all filenames.
+   If a `-p` argument was also passed, it is applied before prepending
+   the new `<root>`.
 
 ## Graphical log (adog)
 
