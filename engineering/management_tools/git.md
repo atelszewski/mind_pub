@@ -28,6 +28,25 @@ Comparing against previous commit (`HEAD~1`):
 
 `HEAD~` can be replaced with any other reference to a commit one wants to compare against.
 
+## Local repository maintenance
+
+### Clean up everything except IDE config files
+
+The following alias extends upon `clean` command. It allows to preserve
+select non-versioned files, while removing all other non-versioned files.
+In the example below, the _generic project_ config files for _Qt Creator_ IDE
+are kept intact during repo clean up.
+
+```
+[alias]
+	clean-x = clean -x -e *?.creator* -e *?.files -e *?.config -e \
+		*?.includes -e *?.cflags -e *?.cxxflags
+```
+
+To fully clean up the repo, without confirmation, type:
+
+    $ git clean-x -df
+
 ## Searching for commits
 
 ### Yet to be applied to upstream
@@ -179,11 +198,9 @@ $ git pull alt-remote-name master
 $ git remote rm alt-remote-name
 ```
 
-### List remote branches
+### List branches available in the remote repository
 
-```
-$ git branch -r
-```
+    $ git branch -r
 
 ## Submodules
 
