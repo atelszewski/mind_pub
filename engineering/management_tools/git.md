@@ -39,8 +39,8 @@ are kept intact during repo clean up.
 
 ```
 [alias]
-	clean-x = clean -x -e *?.creator* -e *?.files -e *?.config -e \
-		*?.includes -e *?.cflags -e *?.cxxflags
+	clean-x = clean -x -e *?.creator* -e *?.files -e *?.config \
+		-e *?.includes -e *?.cflags -e *?.cxxflags
 ```
 
 To fully clean up the repo, without confirmation, type:
