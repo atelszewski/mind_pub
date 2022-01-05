@@ -75,7 +75,7 @@ _A dog:_
 ### Show full contents of a file as if the staged changes were applied
 
     $ git show :path/to/the/file
-    
+
 ### Show full contents of a file deleted in working tree
 
     $ git show HEAD:path/to/the/file
