@@ -23,14 +23,23 @@ One can think of the above as of a _Certification Authority_, where _root_ key
 is (should be) only used to sign _intermediate_ keys, which in turn are used
 to sign _end entities_ keys.
 
+GnuPG actually uses a signing-only key as the _primary_ key, and creates
+an encryption _subkey_ automatically. Without a subkey for _encryption_,
+you can't have encrypted e-mails with GnuPG at all.
 
+References:
 
-> From https://wiki.debian.org/Subkeys :
->
-> GnuPG actually uses a signing-only key as the _primary_ key,
-> and creates an encryption _subkey_ automatically.
-> Without a subkey for _encryption_, you can't have encrypted e-mails with
-> GnuPG at all.
+- [Using OpenPGP subkeys in Debian development](https://wiki.debian.org/Subkeys)
+
+## Certification vs signing
+
+_Signing_ is an action against arbitrary data. _Certification_ is the signing
+of another key. Ironically, the act of certifying a key is universally called
+_key signing_.
+
+References:
+
+- [Anatomy of a GPG Key](https://davesteele.github.io/gpg/2014/09/20/anatomy-of-a-gpg-key/)
 
 ## Working with _NOT IMPORTED_ key files
 
