@@ -41,6 +41,35 @@ References:
 
 - [Anatomy of a GPG Key](https://davesteele.github.io/gpg/2014/09/20/anatomy-of-a-gpg-key/)
 
+## Capabilities of a key pair
+
+It is possible to set custom capabilities to the public/private key pair.
+
+The following capabilities are available:
+
+- Certify (only for primary keys) - allows the key to create subkeys,
+mandatory for primary keys.
+
+- Sign - allows the key to create cryptographic signatures that others
+can verify with the public key.
+
+- Encrypt - allows anyone to encrypt data with the public key, that only
+the private key can decrypt.
+
+- Authenticate - allows the key to authenticate with various non-GnuPG
+programs. The key can be used as e.g. an SSH key.
+
+In the output of `gpg --list-keys` and elsewhere, these capabilities are shown
+abbreviated to the first letter and in square brackets, e.g.:
+
+- `[SC]` - meaning sign and certify capabilities,
+- `[E]` - meaning encrypt capability.
+
+References:
+
+- [Arch Linux Wiki: GnuPG](https://wiki.archlinux.org/title/GnuPG)
+
+
 ## Working with _NOT IMPORTED_ key files
 
 ### Brief peek at an OpenPGP key file
