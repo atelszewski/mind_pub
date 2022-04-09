@@ -6,6 +6,13 @@ Pretty Good Privacy (PGP) / GnuPG (GPG)
 It is possible to create private keys in a way so that they have a particular
 relationship.
 
+> **TODO**
+>
+> Statement: _Subkey derived from primary key_ is used a couple of times below.
+> _Most probably_ this is not correct, that is, the _subkey_ can be _certified_
+> by a _primary_ key, and not _derived_ from it.
+> See [here](https://superuser.com/questions/1113308/what-is-the-relationship-between-an-openpgp-key-and-its-subkey).
+
 Namely, it is possible to create first private key, called _primary key_,
 and then a second private key, called _subkey_, that is derived from
 the _primary key_.
