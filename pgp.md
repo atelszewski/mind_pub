@@ -76,6 +76,20 @@ References:
 
 - [Arch Linux Wiki: GnuPG](https://wiki.archlinux.org/title/GnuPG)
 
+## RSA-2048, 3072, 4096
+
+NIST states that RSA-2048 gives roughly 112 bits of security and RSA-3072 gives
+roughly 128. There is no formal recommendation on where RSA-4096 lies,
+but the general consensus is that it would come in somewhere around 140 bits -
+28 bits of improvement over RSA-2048. This is an improvement so marginal that
+it's really not worth mentioning.
+
+If you need more security than RSA-2048 offers, the way to go would be to switch
+to elliptical curve cryptography - not to continue using RSA.
+
+References:
+
+- [GnuPG FAQ: 11.5 Why do people advise against using RSA-4096?](https://www.gnupg.org/faq/gnupg-faq.html#please_use_ecc)
 
 ## Working with _NOT IMPORTED_ key files
 
