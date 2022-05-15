@@ -202,6 +202,14 @@ $ git remote rm alt-remote-name
 
     $ git branch -r
 
+### Rename remote
+
+    $ git remote rename <REMOTE_NAME_CUR> <REMOTE_NAME_NEW>
+
+for example:
+
+    $ git remote rename origin production
+
 ## Submodules
 
 ### Loop over submodules and conditionally execute a command
