@@ -38,7 +38,7 @@ References:
 
 - [Using OpenPGP subkeys in Debian development](https://wiki.debian.org/Subkeys)
 
-## Certification vs signing
+## Signing vs certification
 
 _Signing_ is an action against arbitrary data. _Certification_ is the signing
 of another key. Ironically, the act of certifying a key is universally called
@@ -54,16 +54,16 @@ It is possible to set custom capabilities to the public/private key pair.
 
 The following capabilities are available:
 
-- Certify (only for primary keys) - allows the key to create subkeys,
+- `[C]ertify` (only for primary keys) - allows the key to create subkeys,
 mandatory for primary keys.
 
-- Sign - allows the key to create cryptographic signatures that others
+- `[S]ign` - allows the key to create cryptographic signatures that others
 can verify with the public key.
 
-- Encrypt - allows anyone to encrypt data with the public key, that only
+- `[E]ncrypt` - allows anyone to encrypt data with the public key, that only
 the private key can decrypt.
 
-- Authenticate - allows the key to authenticate with various non-GnuPG
+- `[A]uthenticate` - allows the key to authenticate with various non-GnuPG
 programs. The key can be used as e.g. an SSH key.
 
 In the output of `gpg --list-keys` and elsewhere, these capabilities are shown
