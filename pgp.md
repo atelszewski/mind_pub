@@ -1,7 +1,7 @@
 Pretty Good Privacy (PGP) / GnuPG (GPG)
 =======================================
 
-## Primary key and subkey
+## Primary (aka master) key and subkeys
 
 It is possible to create private keys in a way so that they have a particular
 relationship.
@@ -90,6 +90,31 @@ to elliptical curve cryptography - not to continue using RSA.
 References:
 
 - [GnuPG FAQ: 11.5 Why do people advise against using RSA-4096?](https://www.gnupg.org/faq/gnupg-faq.html#please_use_ecc)
+
+## Per-device private subkeys
+
+Having per-device private subkeys _would_ allow, in a case of a key compromise,
+to revoke only the key used for the particular machine -- the one on which
+the key has been compromised. All other keys _could_ be kept without revoking.
+
+Due to the nature of implementation, the following good practices hold true:
+
+- use a _per-device_ _signing_ subkey,
+- use a _single_ _encryption_ subkey, _common_ to all devices.
+
+It is _not_ a good practice to have a _per-device_ _encryption_ subkey.
+This is because the _default enceryption key selection algorithm_ is to use
+the newest key available. _Senders_ will simply use the newest key available
+and there is not much that can be done about that.
+
+> **TODO**
+>
+> Write note about signing key selection algo.
+
+References:
+
+- [Reddit: Good idea? Multiple encryption subkeys for different devices?](https://www.reddit.com/r/GnuPG/comments/2tvwn1/good_idea_multiple_encryption_subkeys_for/)
+- [superuser: Why does GPG not decrypt with all subkeys?](https://superuser.com/questions/1054220/why-does-gpg-not-decrypt-with-all-subkeys)
 
 ## Working with _NOT IMPORTED_ key files
 
