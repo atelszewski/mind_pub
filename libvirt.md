@@ -5,27 +5,39 @@ Libvirt
 
 ## Enable Virtio disk in LILO
 
-    boot = /dev/vda
-    disk = /dev/vda bios=0x80 max-partitions=7
+```
+boot = /dev/vda
+disk = /dev/vda bios=0x80 max-partitions=7
+```
 
 ## Clone machine without cloning disk images
 
 > **WARNING:**
 >
 > Remember to update the _clone_ with appropriate disk files.
+>
 > This note applies to _EFI NVRAM_ files as well.
+> For example:
+>
+>     $ cp /usr/share/ovmf-x64/OVMF_VARS-pure-efi.fd \
+>           ~/.config/libvirt/qemu/nvram/<clone_machine_name>_VARS.fd
 
-    $ virt-clone --original=source_machine_name --name=clone_machine_name --auto-clone --print-xml \
-          | virsh define /dev/stdin --validate
+```
+$ virt-clone --check disk_size=off --auto-clone --print-xml        \
+      --original=<source_machine_name> --name=<clone_machine_name> \
+  | virsh define /dev/stdin --validate
+```
 
 ## Use UEFI instead of BIOS
 
-    <os>
-      ...
-      <loader readonly='yes' type='pflash'>/usr/share/ovmf-x64/OVMF_CODE-pure-efi.fd</loader>
-      <nvram>/home/username/.config/libvirt/qemu/nvram/machine_name_VARS.fd</nvram>
-      ...
-    </os>
+```
+<os>
+  ...
+  <loader readonly='yes' type='pflash'>/usr/share/ovmf-x64/OVMF_CODE-pure-efi.fd</loader>
+  <nvram>/home/username/.config/libvirt/qemu/nvram/machine_name_VARS.fd</nvram>
+  ...
+</os>
+```
 
 ## Enable bi-directional audio (using PulseAudio on the host side)
 
@@ -50,17 +62,19 @@ Libvirt
 > Make sure to use the correct domain XML schema, otherwise _qemu:commandline_
 > will not work as expected.
 
-         <domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
-           ...
-           <qemu:commandline>
-             <qemu:arg value='-device'/>
-             <qemu:arg value='ich9-intel-hda,bus=pcie.0,addr=0x1b'/>
-             <qemu:arg value='-device'/>
-             <qemu:arg value='hda-micro,audiodev=hda'/>
-             <qemu:arg value='-audiodev'/>
-             <qemu:arg value='pa,id=hda,server=unix:/run/user/1010/pulse/native'/>
-          </qemu:commandline>
-        </domain>
+```
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  ...
+  <qemu:commandline>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='ich9-intel-hda,bus=pcie.0,addr=0x1b'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='hda-micro,audiodev=hda'/>
+    <qemu:arg value='-audiodev'/>
+    <qemu:arg value='pa,id=hda,server=unix:/run/user/1010/pulse/native'/>
+  </qemu:commandline>
+</domain>
+```
 
 > **TODO:**
 > 
