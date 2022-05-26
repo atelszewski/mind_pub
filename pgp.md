@@ -48,7 +48,7 @@ References:
 
 - [Anatomy of a GPG Key](https://davesteele.github.io/gpg/2014/09/20/anatomy-of-a-gpg-key/)
 
-## Capabilities of a key pair
+## Usage flags (capabilities) of a key pair
 
 It is possible to set custom capabilities to the public/private key pair.
 
@@ -71,6 +71,28 @@ abbreviated to the first letter and in square brackets, e.g.:
 
 - `[SC]` - meaning sign and certify capabilities,
 - `[E]` - meaning encrypt capability.
+
+### Changing key usage flags
+
+Use `change-usage` command to change the usage flags:
+
+```
+$ gpg --edit-key <KEY>
+gpg> change-usage
+Changing usage of the primary key.
+
+(...)
+
+gpg> save
+```
+
+To change a subkey, select it with:
+
+```
+gpg>key <N>
+```
+
+prior to issuing `change-usage` command.
 
 References:
 
