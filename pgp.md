@@ -77,7 +77,7 @@ abbreviated to the first letter and in square brackets, e.g.:
 Use `change-usage` command to change the usage flags:
 
 ```
-$ gpg --edit-key <KEY>
+$ gpg --edit-key <KEY-ID>
 gpg> change-usage
 Changing usage of the primary key.
 
@@ -88,9 +88,7 @@ gpg> save
 
 To change a subkey, select it with:
 
-```
-gpg>key <N>
-```
+    gpg>key <N>
 
 prior to issuing `change-usage` command.
 
@@ -152,11 +150,34 @@ References:
 
 ### Listing keys
 
-    $ gpg2 --list-keys
+    $ gpg --list-keys
 
 ### Change the passphrase of the secret key
 
-    $ gpg2 --edit-key your-key-id-here
-    gpg> passwd
-    gpg> save
-    gpg> quit
+```
+$ gpg --edit-key <KEY-ID>
+gpg> passwd
+gpg> save
+gpg> quit
+```
+
+## Encrypt a message (pubkey)
+
+To encrypt a message using public key cryptography, the public key of the reci-
+pient(s) is needed:
+
+    $ gpg    -e -r <RECIPIENT-KEY-ID> -o <ENCRYPTED-FILE.asc> <CLEAR-TEXT-FILE>
+
+Using ASCII output (default is binary):
+
+    $ gpg -a -e -r <RECIPIENT-KEY-ID> -o <ENCRYPTED-FILE.asc> <CLEAR-TEXT-FILE>
+
+## Sign a message
+
+To sign a message, the private key of the sender (you) is needed. By default,
+GPG selects a _default_ signing key -- which might not be what you want if you
+have multiple keys.
+
+To sign a message, using a _particular_ key:
+
+    $ gpg -s -u <SENDER-KEY-ID> -o <SIGNED-FILE.asc> <UNSIGNED-FILE>
