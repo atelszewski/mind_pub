@@ -161,7 +161,7 @@ gpg> save
 gpg> quit
 ```
 
-## Encrypt a message (pubkey)
+## Encrypting a message (pubkey)
 
 To encrypt a message using public key cryptography, the public key of the reci-
 pient(s) is needed:
@@ -172,7 +172,7 @@ Using ASCII output (default is binary):
 
     $ gpg -a -e -r <RECIPIENT-KEY-ID> -o <ENCRYPTED-FILE.asc> <CLEAR-TEXT-FILE>
 
-## Sign a message
+## Signing a message
 
 To sign a message, the private key of the sender (you) is needed. By default,
 GPG selects a _default_ signing key -- which might not be what you want if you
@@ -182,7 +182,7 @@ To sign a message, using a _particular_ key:
 
     $ gpg [-a] -s -u <SENDER-KEY-ID> -o <SIGNED-FILE.asc> <UNSIGNED-FILE>
 
-## Exporing keys
+## Exporting keys
 
 Export public key(s):
 
