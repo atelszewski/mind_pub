@@ -180,4 +180,18 @@ have multiple keys.
 
 To sign a message, using a _particular_ key:
 
-    $ gpg -s -u <SENDER-KEY-ID> -o <SIGNED-FILE.asc> <UNSIGNED-FILE>
+    $ gpg [-a] -s -u <SENDER-KEY-ID> -o <SIGNED-FILE.asc> <UNSIGNED-FILE>
+
+## Exporing keys
+
+Export public key(s):
+
+    $ gpg [-a] --export                [-o KEY-FILE.pub] [KEY-ID]
+
+Export private key(s);
+
+    $ gpg [-a] --export-secret-keys    [-o KEY-FILE.key] [KEY-ID]
+
+Export private subkey(s):
+
+    $ gpg [-a] --export-secret-subkeys [-o KEY-FILE.key] [KEY-ID]
