@@ -210,6 +210,14 @@ for example:
 
     $ git remote rename origin production
 
+### Clean-up stale references associated with a remote
+
+```
+$ git remote prune [-n] <name>
+
+n: dry run
+```
+
 ## Submodules
 
 ### Loop over submodules and conditionally execute a command
