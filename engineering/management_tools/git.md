@@ -1,5 +1,4 @@
-Git (Distributed Version Control System - DVCS)
-===============================================
+# Git (Distributed Version Control System - DVCS)
 
 ## Types of diff
 
