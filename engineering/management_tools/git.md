@@ -104,9 +104,16 @@ _A dog:_
 > Note that placing "--" before the path does not work as a separator here.
 
 ## Print commit message of a given commit hash
+```
+$ git log -1 --format=%B <COMMIT>
+```
 
-    $ git log -1 --format=%B <COMMIT>
+ ## Restoring changes
 
+ ### Remove _intent to add_ state
+
+```
+$ git restore --staged -- <FILE>
 ## Print the names of files changed in a given commit
 
     $ git log -1 --pretty= --name-only <COMMIT>
