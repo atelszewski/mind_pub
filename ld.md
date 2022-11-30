@@ -1,0 +1,12 @@
+```
+--target-help
+--force-group-allocation
+--trace-symbol=symbol
+--print-map
+--nmagic
+--trace
+--cref
+--fatal-warnings
+--print-memory-usage
+--warn-section-align
+```
