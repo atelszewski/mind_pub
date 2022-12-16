@@ -38,19 +38,23 @@ are kept intact during repo clean up.
 
 ```
 [alias]
-	clean-x = clean -x -e *?.creator* -e *?.files -e *?.config \
-		-e *?.includes -e *?.cflags -e *?.cxxflags
+    clean-x = clean -x -e *?.creator* -e *?.files -e *?.config \
+        -e *?.includes -e *?.cflags -e *?.cxxflags
 ```
 
 To fully clean up the repo, without confirmation, type:
 
-    $ git clean-x -df
+```
+$ git clean-x -df
+```
 
 ## Searching for commits
 
 ### Yet to be applied to upstream
 
-    $ git cherry -v local local_old | grep ^\+
+```
+$ git cherry -v local local_old | grep ^\+
+```
 
 > **NOTE**
 > 
@@ -59,7 +63,9 @@ To fully clean up the repo, without confirmation, type:
 
 ## Edit commit
 
-    $ git rebase -i HEAD~3
+```
+$ git rebase -i HEAD~3
+```
 
 ## Interacting with another repositories
 
@@ -86,17 +92,23 @@ the destination directory name differs from the source one:
 
 _A dog:_
 
-    $ git log --all --decorate --oneline --graph
+```
+$ git log --all --decorate --oneline --graph
+```
 
 ## Files and objects inspection
 
 ### Show full contents of a file as if the staged changes were applied
 
-    $ git show :path/to/the/file
+```
+$ git show :path/to/the/file
+```
 
 ### Show full contents of a file deleted in working tree
 
-    $ git show HEAD:path/to/the/file
+```
+$ git show HEAD:path/to/the/file
+```
 
 > **NOTE**
 >
@@ -104,39 +116,52 @@ _A dog:_
 > Note that placing "--" before the path does not work as a separator here.
 
 ## Print commit message of a given commit hash
+
 ```
 $ git log -1 --format=%B <COMMIT>
 ```
 
- ## Restoring changes
+## Restoring changes
 
- ### Remove _intent to add_ state
+### Remove _intent to add_ state
 
 ```
 $ git restore --staged -- <FILE>
+```
+
 ## Print the names of files changed in a given commit
 
-    $ git log -1 --pretty= --name-only <COMMIT>
+```
+$ git log -1 --pretty= --name-only <COMMIT>
+```
 
 ## Stashing
 
 ### Stash everything except index (i.e. staged/cached changes)
 
-    $ git stash push -k -u
+```
+$ git stash push -k -u
+```
 
 ### Checkout tracked path from stash
 
-    $ git checkout stash@{0} -- README
+```
+$ git checkout stash@{0} -- README
+```
 
 ### Checkout untracked path from stash
 
 See [here](https://stackoverflow.com/a/23609023) for details.
 
-    $ git checkout stash@{0}^3 -- untracked/file.txt
+```
+$ git checkout stash@{0}^3 -- untracked/file.txt
+```
 
 ### Compare index with a stash
 
-    $ git diff --cached stash@{0} -- README
+```
+$ git diff --cached stash@{0} -- README
+```
 
 ## Reset author for all commits
 
@@ -153,7 +178,9 @@ git filter-branch -f --env-filter "
 
 1. Find the commit the new commit should be injected _after_:
 
-       $ git rebase -i HEAD~3
+```
+$ git rebase -i HEAD~3
+```
 
 2. Choose `edit`.
 3. Make changes and do `git commit`, but without `--amend`.
@@ -168,17 +195,23 @@ git filter-branch -f --env-filter "
 
 Start an interactive rebase:
 
-    $ git rebase -i COMMIT~1
+```
+$ git rebase -i COMMIT~1
+```
 
 Mark the commit to be split with `edit`.
 Then, reset the state to the previous commit:
 
-    $ git reset HEAD~1
+```
+$ git reset HEAD~1
+```
 
 Use `git add` and `git commit` to incrementally add changes.
 Then resume rebasing:
 
-    $ git rebase --continue
+```
+$ git rebase --continue
+```
 
 Source: [Embedded Artistry: Workflow for Splitting git Commits](https://tinyurl.com/59jatw8r)
 
@@ -186,11 +219,15 @@ Source: [Embedded Artistry: Workflow for Splitting git Commits](https://tinyurl.
 
 ### Create a branch from a commit
 
-    $ git branch <BRANCH_NAME> <COMMIT>
+```
+$ git branch <BRANCH_NAME> <COMMIT>
+```
 
 ### Make a branch point to a different commit
 
-    $ git branch -f <BRANCH_NAME> <COMMIT>
+```
+$ git branch -f <BRANCH_NAME> <COMMIT>
+```
 
 ## Remotes
 
@@ -206,15 +243,21 @@ $ git remote rm alt-remote-name
 
 ### List branches available in the remote repository
 
-    $ git branch -r
+```
+$ git branch -r
+```
 
 ### Rename remote
 
-    $ git remote rename <REMOTE_NAME_CUR> <REMOTE_NAME_NEW>
+```
+$ git remote rename <REMOTE_NAME_CUR> <REMOTE_NAME_NEW>
+```
 
 for example:
 
-    $ git remote rename origin production
+```
+$ git remote rename origin production
+```
 
 ### Clean-up stale references associated with a remote
 
@@ -240,4 +283,6 @@ $ git submodule foreach 'git status --porcelain=v1 | \
 
 In the above example, the conditionally executed command is:
 
-    git checkout -b mlgtint-2099_qcsapi_headers
+```
+git checkout -b mlgtint-2099_qcsapi_headers
+```
