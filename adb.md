@@ -5,17 +5,23 @@ ADB (Android Debug Bridge)
 
 ### List packages
 
-    $ adb shell pm list packages
+```
+$ adb shell pm list packages
+```
 
 ### Disable package for a particular user
 
 In this example, disabled *GMail* package.
 
-    $ adb shell pm disable-user --user 0 com.google.android.gm
+```
+$ adb shell pm disable-user --user 0 com.google.android.gm
+```
 
 ### Enable package for a particular user
 
-    $ adb shell pm enable com.google.android.gm
+```
+$ adb shell pm enable com.google.android.gm
+```
 
 ### Uninstall a package (root required)
 
@@ -27,4 +33,6 @@ In this example, disabled *GMail* package.
 > One might need to pass `--user X` argument if uninstalling fails
 > with the following error: `Failure [DELETE_FAILED_INTERNAL_ERROR]`.
 
-    $ adb shell pm uninstall foundation.e.calendar
+```
+$ adb shell pm uninstall foundation.e.calendar
+```
