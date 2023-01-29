@@ -284,5 +284,13 @@ $ git submodule foreach 'git status --porcelain=v1 | \
 In the above example, the conditionally executed command is:
 
 ```
-git checkout -b mlgtint-2099_qcsapi_headers
+$ git checkout -b mlgtint-2099_qcsapi_headers
+```
+
+## Diffing
+
+### Do not show contents of deleted files
+
+```
+$ git diff --irreversible-delete ...
 ```
