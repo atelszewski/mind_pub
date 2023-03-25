@@ -1,5 +1,9 @@
-ADB (Android Debug Bridge)
-==========================
+# ADB (Android Debug Bridge)
+
+> **NOTE**
+>
+> If `adb` complains about no `plugdev` group, first make sure that the phone
+> USB connection is set to _File transfer_.
 
 ## Package management (pm)
 
