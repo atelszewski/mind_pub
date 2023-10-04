@@ -16,7 +16,7 @@ disk = /dev/vda bios=0x80 max-partitions=7
 >
 > Remember to update the _clone_ with appropriate disk files.
 >
-> This note applies to _EFI NVRAM_ files as well.
+> This warning applies to _EFI NVRAM_ files as well.
 > For example:
 >
 >     $ cp /usr/share/ovmf-x64/OVMF_VARS-pure-efi.fd \
