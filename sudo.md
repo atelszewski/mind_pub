@@ -32,7 +32,9 @@ WHO WHERE = (AS_WHOM) WHAT
 >
 > _Hosts_ is the **local** hostname/ IP address.
 > It's often misunderstood as a remote host.
-> _Hosts_ field will be rarely used
+> _Hosts_ field will be rarely used and makes
+> sense if a _centralized_ sudoers configuration
+> is pushed to multiple hosts.
 
 References:
 
