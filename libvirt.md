@@ -89,3 +89,12 @@ $ virt-clone --check disk_size=off --auto-clone --print-xml        \
 > Due to a bug, the below command will not work in _libvirt_ before version 4.6.
 > 
 > `$ virsh domxml-to-native qemu-argv --domain domain_name`
+
+## Commands
+
+### Balloon lower and then increase guest memory
+
+```
+$ virsh setmem buildbot 4GiB --live
+$ virsh setmem buildbot 5GiB --live
+```
