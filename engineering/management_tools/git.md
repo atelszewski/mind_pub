@@ -294,3 +294,14 @@ $ git checkout -b mlgtint-2099_qcsapi_headers
 ```
 $ git diff --irreversible-delete ...
 ```
+
+## Fetch particular object by its SHA
+
+```
+$ git fetch-pack --thin --keep <REPO-URL> 9c8f89caec0a42f10cfb58aee836992f173c4f3e
+remote: Counting objects: 1, done.
+remote: Total 1 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (1/1), done.
+keep    0912222d08511df41f9f37c861ec5d75dcfdb26f
+9c8f89caec0a42f10cfb58aee836992f173c4f3e 9c8f89caec0a42f10cfb58aee836992f173c4f3e
+```
