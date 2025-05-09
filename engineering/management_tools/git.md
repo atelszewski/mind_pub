@@ -115,6 +115,12 @@ $ git show HEAD:path/to/the/file
 > Note the colon ":" in front of the file path.
 > Note that placing "--" before the path does not work as a separator here.
 
+### Exclude file from show
+
+```
+$ git show -- ':!some/path'
+```
+
 ## Print commit message of a given commit hash
 
 ```
