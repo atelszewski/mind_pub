@@ -15,3 +15,7 @@ Verify the key by piping it to `ssh-keygen`:
     EOF
 
 Paste the key into `~/.ssh/known_hosts`.
+
+## Disconnect a locked-up session
+
+To disconnect a locked-up ssh session, type: `enter ~ .`
